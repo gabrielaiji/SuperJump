@@ -1,0 +1,7 @@
+name: SuperJump
+main: test.gabrielaiji.SuperJump
+version: 1.0
+commands:
+   jump:
+      description: Allows you to jump at a selected height(argument 1) without harmm (no falling damage).
+      usage: /<command>
