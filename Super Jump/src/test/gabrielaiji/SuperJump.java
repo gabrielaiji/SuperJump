@@ -36,7 +36,7 @@ public class SuperJump extends JavaPlugin implements Listener {
 		}
 		
 		else if (args.length < 1){//check de l'utilisation de la commande
-			Bukkit.getServer().broadcastMessage(ChatColor.RED + "Please enter at least one argument for the jump command.");
+			Bukkit.getServer().broadcastMessage(ChatColor.RED + "Please enter one argument for the jump command.");
 		}
 		
 		else if (cmd.getName().equalsIgnoreCase("jump") && sender instanceof Player){
