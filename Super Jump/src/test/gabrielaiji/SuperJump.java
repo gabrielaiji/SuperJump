@@ -28,6 +28,7 @@ public class SuperJump extends JavaPlugin implements Listener {
 		
 	}
 	
+	String users[] = new String[5];//Ce tableau permet de d'enregistrer les joueurs utilisant la commande "/jump" et pouvant ainsi enlever les FallingDamage seulement joueurs ayant utiliser cette commande.
 	
 	public boolean onCommand(CommandSender sender, Command cmd, String Label, String[] args){
 		if (args.length > 1){//check de l'utilisation de la commande
@@ -44,6 +45,14 @@ public class SuperJump extends JavaPlugin implements Listener {
 			
 			player.setVelocity(player.getVelocity().add(new Vector(0, height, 0)));
 			
+			if(height > 1){
+				for (int i = 0; i < users.length; i++){
+					if (users[i] == null){
+						users[i] = sender.getName();//Enregistre les joueurs ayants utiliser la commande "/jump" dont l'hauteur peut causer des FallingDamage.
+						break;
+					}
+				}
+			}
 			return true;
 		}
 		return false;
@@ -53,7 +62,14 @@ public class SuperJump extends JavaPlugin implements Listener {
 	public void onFall(EntityDamageEvent e){
 		if(e.getEntity() instanceof Player && e.getCause() == DamageCause.FALL){//check de l'entité pour joueur && de la cause pour Fall.
 		
-			e.setCancelled(true);
+			for (int i = 0; i < users.length; i++){//Recherche du Nom du joueur dans le tableau
+				if (users[i] == e.getEntity().getName()){
+					
+					users[i] = null;//Enleve le nom du joueur du tableau
+					e.setCancelled(true);
+					break;
+				}
+			}
 		}
 	}
 
