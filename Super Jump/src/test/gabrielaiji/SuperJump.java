@@ -28,7 +28,7 @@ public class SuperJump extends JavaPlugin implements Listener {
 		
 	}
 	
-	String users[] = new String[5];//Ce tableau permet de d'enregistrer les joueurs utilisant la commande "/jump" et pouvant ainsi enlever les FallingDamage seulement joueurs ayant utiliser cette commande.
+	String users[] = new String[5];//Ce tableau permet de d'enregistrer les joueurs utilisant la commande "/jump" et pouvant ainsi enlever les FallingDamage seulement des joueurs ayant utiliser cette commande.
 	
 	public boolean onCommand(CommandSender sender, Command cmd, String Label, String[] args){
 		if (args.length > 1){//check de l'utilisation de la commande
