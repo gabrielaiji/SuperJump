@@ -46,7 +46,7 @@ public class SuperJump extends JavaPlugin implements Listener {
 			player.setVelocity(player.getVelocity().add(new Vector(0, height, 0)));
 			
 			if(height > 1){
-				for (int i = 0; i < users.length; i++){
+				for (int i = 0; i <= users.length; i++){
 					if (users[i] == null){
 						users[i] = sender.getName();//Enregistre les joueurs ayants utiliser la commande "/jump" dont l'hauteur peut causer des FallingDamage.
 						break;
@@ -62,7 +62,7 @@ public class SuperJump extends JavaPlugin implements Listener {
 	public void onFall(EntityDamageEvent e){
 		if(e.getEntity() instanceof Player && e.getCause() == DamageCause.FALL){//check de l'entité pour joueur && de la cause pour Fall.
 		
-			for (int i = 0; i < users.length; i++){//Recherche du Nom du joueur dans le tableau
+			for (int i = 0; i <= users.length; i++){//Recherche du Nom du joueur dans le tableau
 				if (users[i] == e.getEntity().getName()){
 					
 					users[i] = null;//Enleve le nom du joueur du tableau
